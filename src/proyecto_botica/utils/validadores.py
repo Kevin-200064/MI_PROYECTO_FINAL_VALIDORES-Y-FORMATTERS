@@ -17,5 +17,14 @@ class Validadores:
         if precio < 0:
             raise ValueError("El precio no puede ser negativo")
         return True
+    
+    @staticmethod
+    def validar_cantidad_no_negativa(cantidad: int) -> bool:
+        """Valida que la cantidad sea un entero no negativo."""
+        if not isinstance(cantidad, int):
+            raise ValueError("La cantidad debe ser un numero entero")
+        if cantidad < 0:
+            raise ValueError("La cantidad no puede ser negativa")
+        return True
 
     
