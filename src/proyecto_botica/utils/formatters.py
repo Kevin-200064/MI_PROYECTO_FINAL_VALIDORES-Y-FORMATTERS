@@ -24,5 +24,14 @@ class Formateadores:
         return (f"| {producto.id_producto:>6} | {producto.nombre:<20} | "
                 f"{precio_formateado:>8} | {producto.cantidad:>6} | "
                 f"{valor_total_formateado:>10} |")
-
-    
+    @staticmethod
+    def formatear_lista_productos(productos: List[Producto]) -> str:
+        """Formatea lista de productos completa con encabezado y separadores."""
+        if not productos:
+            return "No hay productos para mostrar."
+            
+        encabezado = "|   ID   |        Nombre          |  Precio  | Stock  | Valor Total  |"
+        separador = "-" * 70
+        filas = [Formateadores.formatear_producto_tabla(p) for p in productos]
+        
+        return f"{separador}\n{encabezado}\n{separador}\n" + "\n".join(filas) + f"\n{separador}"
