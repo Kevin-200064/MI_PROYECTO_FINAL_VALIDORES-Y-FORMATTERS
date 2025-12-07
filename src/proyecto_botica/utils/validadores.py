@@ -27,4 +27,11 @@ class Validadores:
             raise ValueError("La cantidad no puede ser negativa")
         return True
 
-    
+    @staticmethod
+    def validar_nombre_no_vacio(nombre: str) -> bool:
+        """Valida que el nombre sea una cadena de texto no vacía."""
+        if not isinstance(nombre, str):
+            raise ValueError("El nombre debe ser texto")
+        if not nombre or not nombre.strip():
+            raise ValueError("El nombre no puede estar vacio")
+        return True
