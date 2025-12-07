@@ -35,3 +35,11 @@ class Validadores:
         if not nombre or not nombre.strip():
             raise ValueError("El nombre no puede estar vacio")
         return True
+    
+    @staticmethod
+    def validar_categoria_valida(categoria: str, categorias_validas: List[str]) -> bool:
+        """Valida que la categoria ingresada exista en la lista de categorías permitidas."""
+        if categoria not in categorias_validas:
+            raise ValueError(f"Categoria invalida. Validas: {', '.join(categorias_validas)}")
+        return True
+    
